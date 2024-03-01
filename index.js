@@ -13,12 +13,8 @@ app.get('/convert', async (req, res) => {
     return res.status(400).send('Todos os parâmetros (fileName, uc_id, nome, codigo, data) são obrigatórios');
   }
 
-  const browser = await puppeteer.launch({
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-    ],
-  });
+  const browser = await puppeteer.launch()
+   
   const page = await browser.newPage();
 
   // Codifica os componentes da URL
